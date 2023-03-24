@@ -1,0 +1,63 @@
+<div *ngIf="pageSize" class="page-size">
+  <span>Items per page: </span>
+  <select (ngModelChange)="pageSizeChangeHandler($event)" [ngModel]="pageSize">
+    <option *ngFor="let option of pageSizeOptions" [ngValue]="option">{{ option }}</option>
+  </select>
+</div>
+
+<div *ngIf="pageSize" class="page-info">
+  <span>Page</span>
+  <span>{{ currentPage }}</span>
+  <span>of</span>
+  <span>{{ totalPages }}</span>
+</div>
+<div *ngIf="pageSize" class="buttons">
+  <button
+    (click)="pageChangeHandler(1)"
+    [disabled]="currentPage === 1"
+    aria-label="Go to first page" type="button"
+  >
+    <svg height="24" id="first-page" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6 1.41-1.41zM6 6h2v12H6V6z"></path>
+    </svg>
+  </button>
+  <button
+    (click)="pageChangeHandler(currentPage - 1)"
+    [disabled]="currentPage === 1"
+    aria-label="Go to previous page" type="button"
+  >
+    <svg height="24" id="first-page" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M11.3,12l3.5-3.5c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0l-4.2,4.2l0,0c-0.4,0.4-0.4,1,0,1.4l4.2,4.2
+	c0.2,0.2,0.4,0.3,0.7,0.3l0,0c0.3,0,0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L11.3,12z"
+      ></path>
+    </svg>
+  </button>
+  <button
+    (click)="pageChangeHandler(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+    aria-label="Go to next page" type="button"
+  >
+    <svg height="24" id="first-page" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9.9,17.2c-0.6,0-1-0.4-1-1c0-0.3,0.1-0.5,0.3-0.7l3.5-3.5L9.2,8.5c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l4.2,4.2
+	c0.4,0.4,0.4,1,0,1.4c0,0,0,0,0,0l-4.2,4.2C10.4,17.1,10.1,17.2,9.9,17.2z"
+      ></path>
+    </svg>
+  </button>
+  <button
+    (click)="pageChangeHandler(totalPages)"
+    [disabled]="currentPage === totalPages"
+    aria-label="Go to last page" type="button"
+  >
+    <svg height="24" id="last-page" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM16 6h2v12h-2V6z"></path>
+    </svg>
+  </button>
+</div>
+
+<div class="page-info">
+  <span>Total: </span>
+  <span>{{ total }}</span>
+  <span>items</span>
+</div>

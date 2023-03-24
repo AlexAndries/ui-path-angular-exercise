@@ -1,0 +1,10 @@
+<h1>Progress Component</h1>
+
+<div class="showcase">
+  <t-progress
+    *ngIf="progress$ | async as data"
+    [color]="data.color"
+    [progress]="data.progress"
+    [radius]="data.radius"
+  ></t-progress>
+</div>

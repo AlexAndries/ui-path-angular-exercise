@@ -1,0 +1,23 @@
+@use "variables/spacing" as spacing;
+
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  padding: spacing.$bodyMargins;
+
+  section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    t-grid {
+      width: 80%;
+    }
+  }
+}

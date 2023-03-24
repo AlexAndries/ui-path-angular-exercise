@@ -1,0 +1,20 @@
+<ng-template #headerCell let-isSortable="sortable">
+  <t-sort-cell
+    (directionChange)="sortDirectionChangeHandler($event)"
+    *ngIf="isSortable && sortable"
+    [direction]="(sortDirection$ | async)!"
+    class="header-cell"
+  >
+    {{ name }}
+  </t-sort-cell>
+
+  <div *ngIf="!isSortable || !sortable" class="header-cell">
+    {{ name }}
+  </div>
+</ng-template>
+
+<ng-template #rowCell let-row="row">
+  <div class="cell">
+    {{ row?.[property] }}
+  </div>
+</ng-template>

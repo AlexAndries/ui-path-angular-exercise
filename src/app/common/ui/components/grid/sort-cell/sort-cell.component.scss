@@ -1,0 +1,50 @@
+@use "variables/colors" as colors;
+
+:host {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+$sortingWidth: 5px;
+.ascending,
+.descending {
+  border-left: $sortingWidth solid transparent;
+  border-right: $sortingWidth solid transparent;
+  height: 0;
+  width: 0;
+}
+
+.ascending {
+  border-bottom: $sortingWidth solid colors.$white;
+}
+
+.descending {
+  border-top: $sortingWidth solid colors.$white;
+}
+
+.placeholder {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: .8;
+
+  &:before,
+  &:after {
+    border-left: $sortingWidth solid transparent;
+    border-right: $sortingWidth solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+  }
+
+  &:before {
+    border-bottom: $sortingWidth solid colors.$white;
+  }
+
+  &:after {
+    border-top: $sortingWidth solid colors.$white;
+  }
+}

@@ -1,0 +1,30 @@
+<ng-container *ngIf="dataConfig$ | async as dataConfig">
+  <table>
+    <thead>
+    <th *ngFor="let column of columns; trackBy:trackColumnsBy">
+      <ng-template
+        [ngTemplateOutletContext]="{ sortable: sortable }"
+        [ngTemplateOutlet]="column.headerCellRef"
+      >
+      </ng-template>
+    </th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of dataConfig.data; trackBy:trackRowsBy">
+      <td *ngFor="let column of columns; trackBy:trackColumnsBy">
+        <ng-template
+          [ngTemplateOutletContext]="{ row: row }"
+          [ngTemplateOutlet]="column.rowCellRef"
+        >
+        </ng-template>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <t-paginator
+    (paginatorChange)="paginatorChangeHandler($event)"
+    [currentPage]="dataConfig.currentPage"
+    [pageSize]="dataConfig.pageSize"
+    [total]="dataConfig.total"
+  ></t-paginator>
+</ng-container>

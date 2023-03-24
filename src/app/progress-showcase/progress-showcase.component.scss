@@ -1,0 +1,18 @@
+@use "variables/spacing" as spacing;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: spacing.$verticalMargins;
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  .showcase {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+}

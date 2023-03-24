@@ -1,0 +1,18 @@
+<header>
+  <h1>
+    <img alt="UiPath" src="https://upload.wikimedia.org/wikipedia/en/8/80/UiPath_2019_Corporate_Logo.png" />
+    Angular Exercise
+  </h1>
+</header>
+<nav>
+  <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/" routerLinkActive="active">Dashboard</a>
+  <a routerLink="/grid" routerLinkActive="active">Grid</a>
+  <a routerLink="/progress" routerLinkActive="active">Progress</a>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <span>&copy;</span><span>Alexandru Andries - {{ year }}</span>
+</footer>

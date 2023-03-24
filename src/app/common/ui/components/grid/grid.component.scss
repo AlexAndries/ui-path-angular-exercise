@@ -1,0 +1,38 @@
+@use "variables/spacing" as spacing;
+@use "variables/colors" as colors;
+@use "sass:math" as math;
+
+:host {
+  display: block;
+  margin: spacing.$tableMargins;
+  width: 100%;
+}
+
+table {
+  border: 1px solid colors.$dark-purple;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: math.div(spacing.$tableMargins, 2);
+  width: 100%;
+
+  tbody {
+    tr {
+      border-bottom: 1px solid colors.$dark-purple;
+
+      &:nth-child(odd) {
+        background-color: colors.$white;
+      }
+
+      &:nth-child(even) {
+        background-color: lighten(colors.$wenge, 50%);
+      }
+    }
+  }
+
+  th {
+    background-color: colors.$wenge;
+    color: colors.$white;
+    text-align: left;
+  }
+}
+

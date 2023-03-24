@@ -1,0 +1,6 @@
+@use "variables/spacing" as spacing;
+
+.header-cell,
+.cell {
+  padding: spacing.$cellSpacing;
+}

@@ -1,0 +1,16 @@
+@use "variables/colors" as colors;
+
+@import "normalize.css";
+
+body {
+  color: colors.$byzantium;
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
